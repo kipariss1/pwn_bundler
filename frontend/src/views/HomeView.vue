@@ -2,7 +2,9 @@
 </script>
 
 <template>
-  <h1>
-    Home view blah blah
-  </h1>
+  <div>
+    <h1>
+      Welcome to PWN's Token Bundler
+    </h1>
+  </div>
 </template>
