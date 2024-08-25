@@ -1,5 +1,5 @@
 from web3 import Web3
-from backend.token_bundler.endpoint import ENDPOINT
+from token_bundler.endpoint import ENDPOINT
 
 w3 = Web3(Web3.HTTPProvider(ENDPOINT))
 
