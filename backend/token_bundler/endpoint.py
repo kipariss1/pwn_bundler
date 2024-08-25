@@ -1,7 +1,8 @@
 from typing import Optional
 from web3 import Web3
 
-ENDPOINT_ADDRESS = 'https://eth-sepolia.g.alchemy.com/v2/63BGWEBc08wM_UJVo3lVsgHIrRlacnuM'
+# ENDPOINT_ADDRESS = 'https://eth-sepolia.g.alchemy.com/v2/63BGWEBc08wM_UJVo3lVsgHIrRlacnuM'    # sepolia testnet
+ENDPOINT_ADDRESS = 'https://linea-sepolia.blockpi.network/v1/rpc/public'   # linea sepolia testnet
 
 
 class EndpointServer:
@@ -13,4 +14,5 @@ class EndpointServer:
             raise ConnectionError("Couldn't establish connection to endpoint address")
         
     def get_wallet_balance(self, wallet: str):
-        return self.w3.eth.get_balance(wallet)
+        balance_in_wei = self.w3.eth.get_balance(wallet)
+        return self.w3.from_wei(balance_in_wei, 'ether')
