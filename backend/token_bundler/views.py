@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from token_bundler.wallet import WALLET
 from token_bundler import endpoint_server
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -12,3 +11,6 @@ class Wallet(APIView):
         wallet = request.data['wallet']
         return Response(endpoint_server.get_wallet_balance(wallet=wallet))
 
+    def post(self, request):
+        # TODO: create wallet
+        pass
