@@ -1,7 +1,11 @@
 from django.shortcuts import render
-from token_bundler import endpoint_server
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
+from token_bundler import endpoint_server
+from token_bundler.models import WalletModel
+from token_bundler.serializers import WalletSerializer 
 
 # Create your views here.
 
@@ -12,5 +16,16 @@ class Wallet(APIView):
         return Response(endpoint_server.get_wallet_balance(wallet=wallet))
 
     def post(self, request):
-        # TODO: create wallet
-        pass
+        # create wallet
+        address = request.POST['address']
+        name = request.POST['name'] if 'name' in request.POST.keys() else ''
+
+        # TODO: check if wallet already exists, filter by address
+
+        new_wallet = WalletModel(
+            address=address,
+            name=name
+        )
+        new_wallet.save()
+        serializer = WalletSerializer(new_wallet)
+        return Response(serializer.data)
