@@ -1,8 +1,8 @@
 from typing import Optional
 from web3 import Web3
 
-# ENDPOINT_ADDRESS = 'https://eth-sepolia.g.alchemy.com/v2/63BGWEBc08wM_UJVo3lVsgHIrRlacnuM'    # sepolia testnet
-ENDPOINT_ADDRESS = 'https://linea-sepolia.blockpi.network/v1/rpc/public'   # linea sepolia testnet
+ENDPOINT_ADDRESS = 'https://eth-sepolia.g.alchemy.com/v2/63BGWEBc08wM_UJVo3lVsgHIrRlacnuM'    # sepolia testnet
+# ENDPOINT_ADDRESS = 'https://linea-sepolia.blockpi.network/v1/rpc/public'   # linea sepolia testnet
 
 
 class EndpointServer:
