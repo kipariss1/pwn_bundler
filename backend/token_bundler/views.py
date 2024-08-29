@@ -20,11 +20,11 @@ class WalletDetail(mixins.CreateModelMixin, mixins.RetrieveModelMixin, generics.
     queryset = WalletModel.objects.all()
     serializer_class = WalletSerializer
 
-    def get(self, request, *args, **kwargs):
-        return self.retrieve(request, args, kwargs)
+    def get(self, request, pk, *args, **kwargs):
+        return self.retrieve(request, pk, args, kwargs)
     
-    def post(self, request, pk, *args, **kwargs):
-        return self.create(request, pk, args, kwargs)
+    def post(self, request, *args, **kwargs):
+        return self.create(request, args, kwargs)
 
 
 @api_view(['GET'])
