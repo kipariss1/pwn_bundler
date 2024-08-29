@@ -9,7 +9,10 @@ class WalletModel(models.Model):
 
     def save(self, *args, **kwargs):
         
-        if len(self.name) == 0:
-            self.name = f"{self.address[0:5]}...{self.address[-6:0]}"
+        if not self.name or len(self.name) == 0:
+            self.name = f"{self.address[0:5]}...{self.address[-6:]}"
 
         super().save(args, kwargs)
+
+    def __str__(self) -> str:
+        return self.name
