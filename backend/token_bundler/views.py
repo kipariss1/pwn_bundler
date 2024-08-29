@@ -19,9 +19,6 @@ class Wallet(APIView):
         # create wallet
         address = request.POST['address']
         name = request.POST['name'] if 'name' in request.POST.keys() else ''
-
-        # TODO: check if wallet already exists, filter by address
-
         new_wallet = WalletModel(
             address=address,
             name=name
