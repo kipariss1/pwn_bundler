@@ -26,17 +26,22 @@ class WalletDetail(generics.RetrieveAPIView):
     serializer_class = WalletSerializer
 
 
+def _get_balance(wid, type: str):
+    wallet = WalletModel.objects.get(id=wid)
+    return Response(endpoint_server.wrap_balance_request(wallet=wallet.address, asset=type))
+
 @api_view(['GET'])
 def get_wallet_ballance(request, wid):
-    wallet = WalletModel.objects.get(id=wid)
-    return Response(endpoint_server.get_wallet_balance(wallet=wallet.address))
+    return _get_balance(wid, 'eth')
 
 @api_view(['GET'])
 def get_wallet_erc20_assets(request, wid):
-    wallet = WalletModel.objects.get(id=wid)
-    return JsonResponse(endpoint_server.get_wallet_erc20_assets(wallet=wallet.address), safe=False)
+    return _get_balance(wid, 'erc20')
 
 @api_view(['GET'])
 def get_wallet_nft_assets(request, wid):
-    wallet = WalletModel.objects.get(id=wid)
-    return None
+    return _get_balance(wid, 'nfts')
+
+@api_view(['GET'])
+def get_wallet_nft_collections_assets(request, wid):
+    return _get_balance(wid, 'nfts_col')

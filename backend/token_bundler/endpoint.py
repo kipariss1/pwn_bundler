@@ -1,6 +1,9 @@
 from typing import Optional
 from web3 import Web3
 from moralis import evm_api
+from typing import Literal
+
+assetType = Literal['eth', 'erc20', 'nfts', 'nfts_col']
 
 ENDPOINT_ADDRESS    = 'https://eth-sepolia.g.alchemy.com/v2/63BGWEBc08wM_UJVo3lVsgHIrRlacnuM'    # sepolia testnet
 MORALIS_API_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjBkYjU3MmY3LTFkNDMtNGZjZS1iMGRjLTIyMDBhZDU4YTc1ZCIsIm9yZ0lkIjoiNDA2MzQ4IiwidXNlcklkIjoiNDE3NTQ5IiwidHlwZUlkIjoiOTgxZTEyYWQtMGM2Ny00MWZiLWIxMDAtZDI1MWI1YjYwMDBkIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3MjQ5MzUyODQsImV4cCI6NDg4MDY5NTI4NH0.vA7LhYxlR39A-tfJXcqKY-4YvDN8L-MtccWJ2aJQkLA'
@@ -31,3 +34,38 @@ class EndpointServer:
             api_key=self.moralis_api_key,
             params=params
         )
+    
+    def get_wallet_nft_assets(self, wallet: str):
+        params = {
+            "chain": "sepolia",
+            "format": "decimal",
+            "media_items": False,
+            "address": wallet
+        }
+        return evm_api.nft.get_wallet_nfts(
+            api_key=self.moralis_api_key, 
+            params=params
+        )
+
+
+    def get_wallet_nft_collections_assets(self, wallet: str):
+        params = {
+            "address": wallet,
+            "chain": "sepolia",
+            "limit": 100,
+            "cursor": "",
+        }
+        return evm_api.nft.get_wallet_nft_collections(
+            api_key=self.moralis_api_key,
+            params=params,
+        )
+    
+    def wrap_balance_request(self, wallet: str, asset: assetType = 'eth'):
+        if asset == 'eth':
+            return self.get_wallet_balance(wallet=wallet)
+        elif asset == 'erc20':
+            return self.get_wallet_erc20_assets(wallet=wallet)
+        elif asset == 'nfts':
+            return self.get_wallet_nft_assets(wallet=wallet)
+        elif asset == 'nfts_col':
+            return self.get_wallet_nft_collections_assets(wallet=wallet)
