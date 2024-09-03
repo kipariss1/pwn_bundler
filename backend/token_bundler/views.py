@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 from rest_framework import generics
-from rest_framework.generics import mixins
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -16,15 +15,14 @@ class Wallets(generics.ListCreateAPIView):
     serializer_class = WalletSerializer
 
 
-class WalletDetail(mixins.CreateModelMixin, mixins.RetrieveModelMixin, generics.GenericAPIView):
+class WalletCreate(generics.CreateAPIView):
     queryset = WalletModel.objects.all()
     serializer_class = WalletSerializer
 
-    def get(self, request, pk, *args, **kwargs):
-        return self.retrieve(request, pk, args, kwargs)
-    
-    def post(self, request, *args, **kwargs):
-        return self.create(request, args, kwargs)
+
+class WalletDetail(generics.RetrieveAPIView):
+    queryset = WalletModel.objects.all()
+    serializer_class = WalletSerializer
 
 
 @api_view(['GET'])
