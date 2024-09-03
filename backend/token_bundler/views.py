@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 
 from rest_framework import generics
 from rest_framework.response import Response
@@ -32,10 +33,10 @@ def get_wallet_ballance(request, wid):
 
 @api_view(['GET'])
 def get_wallet_erc20_assets(request, wid):
-    wallet = WalletModel.objects.filter(id=wid)
-    return None
+    wallet = WalletModel.objects.get(id=wid)
+    return JsonResponse(endpoint_server.get_wallet_erc20_assets(wallet=wallet.address), safe=False)
 
 @api_view(['GET'])
 def get_wallet_nft_assets(request, wid):
-    wallet = WalletModel.objects.filter(id=wid)
+    wallet = WalletModel.objects.get(id=wid)
     return None
