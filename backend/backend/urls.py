@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('token_bundler.urls')),
+    path('api/wallet/', include('token_bundler.urls.wallet_urls')),
 ]
