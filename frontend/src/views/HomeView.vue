@@ -46,7 +46,7 @@ onMounted(() => {
             <li class="list-group-item">Dummy wallet #3</li>
           </ul>
         </div>
-      </div class="spinner-border" role="status" v-else-if="type===WALLET_LIST_REQUEST">
+      <div class="spinner-border" role="status" v-else-if="type===WALLET_LIST_REQUEST">
         <span class="sr-only">Loading...</span>
       </div>
     </div>
