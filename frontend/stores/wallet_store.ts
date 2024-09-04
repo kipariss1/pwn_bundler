@@ -17,7 +17,7 @@ export const useWalletsStore = defineStore('wallets-store', {
         getWallets: (state) => state.wallets
     },
     actions: {
-        async getWallets() {
+        async getWalletsAction() {
             this.type = WALLET_LIST_REQUEST
             try {
                 this.wallets = await _axios.get("/api/wallet/wallets/")

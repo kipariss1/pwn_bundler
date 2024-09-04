@@ -13,7 +13,7 @@ const walletStore = useWalletsStore()
 const { wallets, type, error } = storeToRefs(walletStore)
 
 onMounted(() => {
-  walletStore.getWallets()
+  walletStore.getWalletsAction()
 })
 
 </script>
