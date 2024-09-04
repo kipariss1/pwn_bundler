@@ -21,12 +21,14 @@ onMounted(() => {
 <template>
   <div class="container">
     <div class='row py-3'>
-      <h1>
-        Welcome to PWN's Token Bundler
-      </h1>
       <div v-if="type === WALLET_LIST_FAIL" class="alert alert-warning" role="alert">
         {{ error }}
       </div>
+    </div>
+    <div class='row py-3'>
+      <h1>
+        Welcome to PWN's Token Bundler
+      </h1>
     </div>
     <div class="row">
       <div class="col-7">
@@ -46,8 +48,8 @@ onMounted(() => {
             <li class="list-group-item">Dummy wallet #3</li>
           </ul>
         </div>
-        <div v-else-if="type === WALLET_LIST_REQUEST">
-          <h2>Loading wallets....</h2>
+        <div v-else-if="type === WALLET_LIST_REQUEST" class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
         </div>
       </div>
     </div>
