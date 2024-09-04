@@ -21,12 +21,12 @@ onMounted(() => {
 <template>
   <div class="container">
     <div class='row py-3'>
-      <div class="alert alert-warning" role="alert" v-if="type===WALLET_LIST_FAIL">
-        {{ error }}
-      </div>
       <h1>
         Welcome to PWN's Token Bundler
       </h1>
+      <div v-if="type === WALLET_LIST_FAIL" class="alert alert-warning" role="alert">
+        {{ error }}
+      </div>
     </div>
     <div class="row">
       <div class="col-7">
@@ -36,7 +36,7 @@ onMounted(() => {
         </h6>
       </div>
       <div class="col-5">
-        <div class="card" style="width: 18rem;" v-if="type===WALLET_LIST_SUCCESS">
+        <div v-if="type === WALLET_LIST_SUCCESS" class="card" style="width: 18rem;">
           <div class="card-header">
             List of connected wallets:
           </div>
@@ -46,8 +46,9 @@ onMounted(() => {
             <li class="list-group-item">Dummy wallet #3</li>
           </ul>
         </div>
-      <div class="spinner-border" role="status" v-else-if="type===WALLET_LIST_REQUEST">
-        <span class="sr-only">Loading...</span>
+        <div v-else-if="type === WALLET_LIST_REQUEST">
+          <h2>Loading wallets....</h2>
+        </div>
       </div>
     </div>
   </div>
