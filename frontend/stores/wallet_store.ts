@@ -11,7 +11,7 @@ export const useWalletsStore = defineStore('wallets-store', {
     state: () => ({
         wallets: [],
         type: WALLET_LIST_REQUEST,
-        error: null
+        error: ''
     }),
     getters: {
         getWallets: (state) => state.wallets
