@@ -1,5 +1,4 @@
-<script>
-</script>
+<script></script>
 
 <template>
   <header>
@@ -7,7 +6,13 @@
       <div className="container-fluid">
         <a class="navbar-brand px-3">
           <router-link :to="{ name: 'home' }">
-            <img class="pwn-logo px-3" width="88" height="24" alt="PWN logo" src="/public/pwn-logo.svg">
+            <img
+              class="pwn-logo px-3"
+              width="88"
+              height="24"
+              alt="PWN logo"
+              src="/public/pwn-logo.svg"
+            />
           </router-link>
         </a>
       </div>
@@ -15,6 +20,4 @@
   </header>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
