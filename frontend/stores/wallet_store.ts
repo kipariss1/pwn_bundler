@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import _axios from '../axios'
+import _axios from '@/../axios'
 import { 
     WALLET_LIST_FAIL,
     WALLET_LIST_REQUEST,
