@@ -7,7 +7,7 @@ import {
   WALLET_LIST_FAIL,
   WALLET_LIST_REQUEST,
   WALLET_LIST_SUCCESS, 
-} from '@/../constatnts/wallet_constants';
+} from '@/../constants/wallet_constants'
 
 const walletStore = useWalletsStore()
 const { wallets, type, error } = storeToRefs(walletStore)
