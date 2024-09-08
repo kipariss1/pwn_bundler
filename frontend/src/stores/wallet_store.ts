@@ -19,7 +19,8 @@ export const useWalletsStore = defineStore("wallets-store", {
     async getWalletsAction() {
       this.type = WALLET_LIST_REQUEST;
       try {
-        this.wallets = await _axios.get("/api/wallet/wallets/");
+        let res = await _axios.get("/api/wallet/wallets/");
+        this.wallets = res.data
         this.type = WALLET_LIST_SUCCESS;
       } catch (error) {
         this.type = WALLET_LIST_FAIL;

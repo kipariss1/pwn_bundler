@@ -50,9 +50,14 @@ onMounted(() => {
         >
           <div class="card-header">List of connected wallets:</div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Dummy wallet #1</li>
-            <li class="list-group-item">Dummy wallet #2</li>
-            <li class="list-group-item">Dummy wallet #3</li>
+            <li
+              class="list-group-item"
+              v-for="wallet in wallets"
+              :key="wallet.id"
+            >
+              <!-- TODO: fix the icon, so it would display wallet -->
+              <font-awesome-icon :icon="['fas', 'wallet']" />{{ wallet.name }}
+            </li>
           </ul>
         </div>
         <div
