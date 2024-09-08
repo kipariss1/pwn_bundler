@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
 // @ts-ignore
-import HeaderComponent from '@/components/HeaderComponent.vue';
+import HeaderComponent from "@/components/HeaderComponent.vue";
 </script>
 
 <template>
@@ -11,7 +11,4 @@ import HeaderComponent from '@/components/HeaderComponent.vue';
   </div>
 </template>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>
