@@ -7,6 +7,7 @@ import {
   WALLET_LIST_REQUEST,
   WALLET_LIST_SUCCESS,
 } from "@/../constants/wallet_constants";
+import WalletComponent from '@/components/WalletComponent.vue'
 
 const walletStore = useWalletsStore();
 const { wallets, type, error } = storeToRefs(walletStore);
@@ -50,14 +51,7 @@ onMounted(() => {
         >
           <div class="card-header">List of connected wallets:</div>
           <ul class="list-group list-group-flush">
-            <li
-              class="list-group-item"
-              v-for="wallet in wallets"
-              :key="wallet.id"
-            >
-              <!-- TODO: fix the icon, so it would display wallet -->
-              <font-awesome-icon :icon="['fas', 'wallet']" />{{ wallet.name }}
-            </li>
+            <wallet-component v-for="wallet in wallets" :key="wallet" :wallet="wallet"></wallet-component>
           </ul>
         </div>
         <div
