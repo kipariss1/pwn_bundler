@@ -2,7 +2,7 @@
   <li class="list-group-item">
     <!-- TODO: fix the icon, so it would display wallet -->
     <router-link :to="`/wallet_details/${wallet.id}`"
-      ><font-awesome-icon :icon="['fas', 'wallet']" />{{
+      ><font-awesome-icon :icon="['fas', 'wallet']" /> {{
         wallet.name
       }}</router-link
     >
