@@ -1,26 +1,26 @@
 <template>
   <li class="list-group-item">
     <!-- TODO: fix the icon, so it would display wallet -->
-    <router-link :to="`/wallet_details/${wallet.id}`"
-      ><font-awesome-icon :icon="['fas', 'wallet']" /> {{
-        wallet.name
-      }}</router-link
+    <router-link
+      :to="`/wallet_details/${wallet.id}`"
+      @click="logWalletToLocalStorage"
+      ><font-awesome-icon :icon="['fas', 'wallet']" />
+      {{ wallet.name }}</router-link
     >
   </li>
 </template>
 
-<script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "WalletComponent",
-  props: {
-    wallet: {
-      type: Object,
-      required: true,
-    },
+<script setup lang="ts">
+const props = defineProps({
+  wallet: {
+    type: Object,
+    required: true,
   },
 });
+
+function logWalletToLocalStorage() {
+  localStorage.setItem("current_wallet", JSON.stringify(props.wallet));
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
