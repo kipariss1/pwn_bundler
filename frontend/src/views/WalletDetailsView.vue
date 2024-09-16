@@ -10,7 +10,66 @@
       </div>
     </div>
     <div class="row py-3">
-      {{ wallet.name }}
+      <h2>{{ wallet.name }}</h2>
+    </div>
+    <div class="row py-3">
+      <div class="card" style="width: 40rem;">
+        <div class="card-body">
+          <div class="row align-self-center">
+            <div class="col">
+              <h5 class="card-title">Etherium balance:</h5>
+            </div>  
+          </div>
+          <div class="row">
+            <div class="col">
+              <img
+                src="/public/img/eth.png"
+              />
+            </div>
+            <div class="col">
+              {{ wallet_details.AssetsETH }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width: 40rem;">
+        <div class="card-body">
+          <div class="row align-self-center">
+            <div class="col">
+              <h5 class="card-title">ERC20 balance:</h5>
+            </div>  
+          </div>
+          <div class="row">
+            <div class="col">
+              <img
+                src="/public/img/eth.png"
+              />
+            </div>
+            <div class="col">
+              {{ wallet_details.AssetsERC20 }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width: 40rem;">
+        <div class="card-body">
+          <div class="row align-self-center">
+            <div class="col">
+              <h5 class="card-title">NFT balance:</h5>
+            </div>  
+          </div>
+          <div class="row">
+            <div class="col">
+              <img
+                src="/public/img/eth.png"
+              />
+            </div>
+            <div class="col">
+              {{ wallet_details.AssetsNFT }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -49,4 +108,11 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+img {
+    width: 30px;
+    height: auto;
+}
+
+</style>
