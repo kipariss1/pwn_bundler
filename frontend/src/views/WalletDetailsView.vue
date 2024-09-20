@@ -50,7 +50,7 @@
     WALLET_DETAILS_SUCCESS, 
   } from '@/../constants/wallet_constants'
   import WalletAssetsEthComponent from '@/components/WalletAssetsEthComponent.vue'
-  import { WalletAssetsERC20Component } from "@/components/WalletsAssetsERC20Component.vue";
+  import WalletAssetsERC20Component from "@/components/WalletsAssetsERC20Component.vue";
 
 
   const route = useRoute();
