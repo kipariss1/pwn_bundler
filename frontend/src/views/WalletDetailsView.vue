@@ -15,25 +15,7 @@
     <div class="row py-3">
       <WalletAssetsEthComponent :assets_eth="wallet_details.AssetsETH"/>
       <WalletAssetsERC20Component :assets_erc20="wallet_details.AssetsERC20"/>      
-      <div class="card" style="width: 40rem;">
-        <div class="card-body">
-          <div class="row align-self-center">
-            <div class="col">
-              <h5 class="card-title">NFT balance:</h5>
-            </div>  
-          </div>
-          <div class="row">
-            <div class="col">
-              <img
-                src="/public/img/eth.png"
-              />
-            </div>
-            <div class="col">
-              {{ wallet_details.AssetsNFT }}
-            </div>
-          </div>
-        </div>
-      </div>
+      <WalletAssetsNFTDetails :assets_nft="wallet_details.AssetsNFT"/>
     </div>
   </div>
 </template>
@@ -51,6 +33,7 @@
   } from '@/../constants/wallet_constants'
   import WalletAssetsEthComponent from '@/components/WalletAssetsEthComponent.vue'
   import WalletAssetsERC20Component from "@/components/WalletsAssetsERC20Component.vue";
+  import WalletAssetsNFTDetails from '@/components/WalletAssetsNFTDetails.vue';
 
 
   const route = useRoute();

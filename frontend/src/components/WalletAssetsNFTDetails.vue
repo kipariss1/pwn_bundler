@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="row align-self-center">
                 <div class="col">
-                    <h5 class="card-title">ERC20 balance:</h5>
+                    <h5 class="card-title">NFT balance:</h5>
                 </div>  
             </div>
             <div class="row">
@@ -12,7 +12,7 @@
                         src="/public/img/eth.png"
                     />
                 </div>
-                <div class="col" v-for="asset in assets_erc20" :key="asset._uid">
+                <div class="col" v-for="asset in assets_nft" :key="asset._uid">
                     {{ asset }}
                 </div>
             </div>
@@ -25,7 +25,7 @@
     // TODO: make the typing of props
 
     const props = defineProps({
-        assets_erc20: {
+        assets_nft: {
             type: Array,
             required: true
         }
