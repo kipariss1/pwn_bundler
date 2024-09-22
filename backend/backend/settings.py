@@ -130,3 +130,15 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
+
+# eth endpoint settings
+from typing import Literal
+
+
+net_type = Literal['sepolia', 'mainnet']
+
+NET_TYPE = 'sepolia'
+ENDPOINT_ADDRESS    = 'https://eth-sepolia.g.alchemy.com/v2/63BGWEBc08wM_UJVo3lVsgHIrRlacnuM'    # sepolia testnet
+MORALIS_API_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjBkYjU3MmY3LTFkNDMtNGZjZS1iMGRjLTIyMDBhZDU4YTc1ZCIsIm9yZ0lkIjoiNDA2MzQ4IiwidXNlcklkIjoiNDE3NTQ5IiwidHlwZUlkIjoiOTgxZTEyYWQtMGM2Ny00MWZiLWIxMDAtZDI1MWI1YjYwMDBkIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3MjQ5MzUyODQsImV4cCI6NDg4MDY5NTI4NH0.vA7LhYxlR39A-tfJXcqKY-4YvDN8L-MtccWJ2aJQkLA'
+
+# TODO: make checks if all configured, if not print something to logger!!! When project is done all of the above will be empty

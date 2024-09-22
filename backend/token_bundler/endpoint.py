@@ -2,11 +2,13 @@ from typing import Optional
 from web3 import Web3
 from moralis import evm_api
 from typing import Literal
+from django.conf import settings
+
+ENDPOINT_ADDRESS = settings.ENDPOINT_ADDRESS
+MORALIS_API_KEY = settings.MORALIS_API_KEY
+NET_TYPE = settings.NET_TYPE
 
 assetType = Literal['eth', 'erc20', 'nfts', 'nfts_col']
-
-ENDPOINT_ADDRESS    = 'https://eth-sepolia.g.alchemy.com/v2/63BGWEBc08wM_UJVo3lVsgHIrRlacnuM'    # sepolia testnet
-MORALIS_API_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjBkYjU3MmY3LTFkNDMtNGZjZS1iMGRjLTIyMDBhZDU4YTc1ZCIsIm9yZ0lkIjoiNDA2MzQ4IiwidXNlcklkIjoiNDE3NTQ5IiwidHlwZUlkIjoiOTgxZTEyYWQtMGM2Ny00MWZiLWIxMDAtZDI1MWI1YjYwMDBkIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3MjQ5MzUyODQsImV4cCI6NDg4MDY5NTI4NH0.vA7LhYxlR39A-tfJXcqKY-4YvDN8L-MtccWJ2aJQkLA'
 
 class EndpointServer:
 
@@ -31,7 +33,7 @@ class EndpointServer:
     def get_wallet_erc20_assets(self, wallet: str):
         params = {
             "address": wallet,
-            "chain": "sepolia",
+            "chain": NET_TYPE,
         }
         return evm_api.token.get_wallet_token_balances(
             api_key=self.moralis_api_key,
@@ -40,7 +42,7 @@ class EndpointServer:
     
     def get_wallet_nft_assets(self, wallet: str):
         params = {
-            "chain": "sepolia",
+            "chain": NET_TYPE,
             "format": "decimal",
             "media_items": False,
             "address": wallet
@@ -54,7 +56,7 @@ class EndpointServer:
     def get_wallet_nft_collections_assets(self, wallet: str):
         params = {
             "address": wallet,
-            "chain": "sepolia",
+            "chain": NET_TYPE,
             "limit": 100,
             "cursor": "",
         }
