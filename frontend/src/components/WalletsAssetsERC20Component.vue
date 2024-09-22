@@ -3,30 +3,33 @@
         <div class="card-body">
             <div class="row align-self-center">
                 <div class="col">
-                    <h5 class="card-title">ERC20 balance:</h5>
+                    <h5 class="card-title">ERC20 assets:</h5>
                 </div>  
             </div>
-            <div class="row">
+            <div class="row py-3" v-for="asset in assets_erc20" :key="asset._uid">
                 <div class="col">
                     <img
-                        src="/public/img/eth.png"
+                        src="/public/img/erc20.jpg"
                     />
                 </div>
-                <div class="col" v-for="asset in assets_erc20" :key="asset._uid">
-                    {{ asset }}
+                <div class="col" >
+                    <h6>{{ asset.name }}</h6>
+                    Amount: {{ ethers.formatEther(asset.balance) }}
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
-    // TODO: make the typing of props
+    import type { PropType } from 'vue'
+    import type { WalletERC20Asset } from '@/interfaces/wallet_details_interface';
+    import { ethers } from 'ethers';
 
     const props = defineProps({
         assets_erc20: {
-            type: Array,
+            type: Array as PropType<Array<WalletERC20Asset>>,
             required: true
         }
     })
@@ -34,7 +37,7 @@
 
 <style scoped>
     img {
-        width: 30px;
+        width: 40px;
         height: auto;
     }
 </style>

@@ -13,7 +13,7 @@
                     />
                 </div>
                 <div class="col">
-                    {{ assets_eth }}
+                    Eth's: <h6>{{ assets_eth }}</h6>
                 </div>
             </div>
         </div>

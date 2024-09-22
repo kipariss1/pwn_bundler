@@ -31,7 +31,7 @@ export interface WalletNFTAsset
     owner_of: string,
     last_metadata_sync: string,
     last_token_uri_sync: string,
-    metadata: string,
+    metadata: string | Object,
     block_number: string,
     block_number_minted: string,
     name: string,

@@ -29,18 +29,14 @@ onMounted(() => {
       </div>
     </div>
     <div class="row py-3">
-      <h1>Welcome to PWN's Token Bundler</h1>
+      <h1>Welcome to Wallet Info App</h1>
     </div>
     <div class="row">
       <div class="col-7">
         <h6>
-          <li>
-            Start by connecting your wallet <router-link>here</router-link>
-          </li>
-          <li>
-            Or continue by connecting another wallet
-            <router-link>here</router-link>
-          </li>
+          <li> On the right you can see the list of already connected wallets </li>
+          <li> To find out Etherium balance, ERC20 and NFT assets, click on them! </li>
+          <li> To add a new wallet <router-link>Click here!</router-link> </li>
         </h6>
       </div>
       <div class="col-5">
