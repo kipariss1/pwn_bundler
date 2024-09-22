@@ -21,6 +21,7 @@ export const useWalletDetailsStore = defineStore("wallet-details-store", {
   },
   actions: {
     async getWalletDetailsAction(id: number) {
+      this.type = WALLET_DETAILS_REQUEST
       this.wallet_details = {} as WalletDetailsInterface;
       this.error = "";
       const promiseEth = _axios.get(`/api/wallet/get_balance/${id}/`);

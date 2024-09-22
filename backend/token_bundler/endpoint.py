@@ -20,6 +20,9 @@ class EndpointServer:
         if not self.w3.is_connected():
             raise ConnectionError("Couldn't establish connection to endpoint address")
         self.moralis_api_key = moralis_api_key if moralis_api_key else MORALIS_API_KEY
+
+    def wallet_exists(self, wallet: str) -> bool:
+        return self.w3.is_address(wallet)
         
     def get_wallet_balance(self, wallet: str):
         balance_in_wei = self.w3.eth.get_balance(wallet)
