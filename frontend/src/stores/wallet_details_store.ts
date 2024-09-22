@@ -14,7 +14,6 @@ export const useWalletDetailsStore = defineStore("wallet-details-store", {
     error: "",
   }),
   getters: {
-    // TODO: make all this getters, make interfaces for wallet details
     getWalletID: (state) => state.wallet_details.id,
     getWalletEthAssets: (state) => state.wallet_details.AssetsETH,
     getWalletERC20Assets: (state) => state.wallet_details.AssetsERC20,
@@ -33,7 +32,6 @@ export const useWalletDetailsStore = defineStore("wallet-details-store", {
           this.wallet_details.AssetsETH = values[0].data;
           this.wallet_details.AssetsERC20 = values[1].data;
           this.wallet_details.AssetsNFT = values[2].data.result;
-          console.log(values);
         })
         .catch((error) => {
           this.type = WALLET_DETAILS_FAIL;

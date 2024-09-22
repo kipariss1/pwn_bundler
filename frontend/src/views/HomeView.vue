@@ -36,7 +36,7 @@ onMounted(() => {
         <h6>
           <li> On the right you can see the list of already connected wallets </li>
           <li> To find out Etherium balance, ERC20 and NFT assets, click on them! </li>
-          <li> To add a new wallet <router-link>Click here!</router-link> </li>
+          <li> To add a new wallet <router-link :to="{ name: 'add-wallet' }">Click here!</router-link> </li>
         </h6>
       </div>
       <div class="col-5">

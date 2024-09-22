@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import WalletDetailsView from "@/views/WalletDetailsView.vue"
+import WalletDetailsView from "@/views/WalletDetailsView.vue";
+import AddWalletView from "@/views/AddWalletView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,6 +17,11 @@ const router = createRouter({
       component: WalletDetailsView,
       params: true,
     },
+    {
+      path: "/add_wallet",
+      name: "add-wallet",
+      component: AddWalletView,
+    }
   ],
 });
 
