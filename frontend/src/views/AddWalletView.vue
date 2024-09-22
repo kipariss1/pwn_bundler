@@ -30,7 +30,7 @@
       <div class="col-4">
         <form @submit="submitNewWallet">
           <div class="form-group">
-            <label for="formGroupExampleInput">Name</label>
+            <label for="w_name">Name</label>
             <input
               type="text"
               class="form-control"
@@ -39,7 +39,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="formGroupExampleInput2">Address</label>
+            <label for="w_address">Address</label>
             <input
               type="text"
               class="form-control"
