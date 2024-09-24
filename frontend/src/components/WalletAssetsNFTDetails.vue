@@ -23,7 +23,6 @@
 
 <script setup lang="ts">
 
-    // TODO: make the typing of props
     import type { PropType } from 'vue'
     import type { WalletNFTAsset } from '@/interfaces/wallet_details_interface';
     import { onMounted } from 'vue'

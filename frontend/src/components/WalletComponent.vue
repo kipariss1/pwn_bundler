@@ -1,6 +1,5 @@
 <template>
   <li class="list-group-item">
-    <!-- TODO: fix the icon, so it would display wallet -->
     <router-link
       :to="`/wallet_details/${wallet.id}`"
       @click="logWalletToLocalStorage"
