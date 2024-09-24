@@ -135,9 +135,7 @@ CORS_ALLOWED_ORIGINS = [
 from typing import Literal
 
 
-net_type = Literal['sepolia', 'mainnet']
-
-NET_TYPE = ''
+NET_TYPE: Literal['sepolia', 'mainnet'] = ''
 ENDPOINT_ADDRESS    = ''    # sepolia testnet
 MORALIS_API_KEY     = ''
 
