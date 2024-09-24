@@ -137,8 +137,12 @@ from typing import Literal
 
 net_type = Literal['sepolia', 'mainnet']
 
-NET_TYPE = 'sepolia'
-ENDPOINT_ADDRESS    = 'https://eth-sepolia.g.alchemy.com/v2/63BGWEBc08wM_UJVo3lVsgHIrRlacnuM'    # sepolia testnet
-MORALIS_API_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjBkYjU3MmY3LTFkNDMtNGZjZS1iMGRjLTIyMDBhZDU4YTc1ZCIsIm9yZ0lkIjoiNDA2MzQ4IiwidXNlcklkIjoiNDE3NTQ5IiwidHlwZUlkIjoiOTgxZTEyYWQtMGM2Ny00MWZiLWIxMDAtZDI1MWI1YjYwMDBkIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3MjQ5MzUyODQsImV4cCI6NDg4MDY5NTI4NH0.vA7LhYxlR39A-tfJXcqKY-4YvDN8L-MtccWJ2aJQkLA'
+NET_TYPE = ''
+ENDPOINT_ADDRESS    = ''    # sepolia testnet
+MORALIS_API_KEY     = ''
 
-# TODO: make checks if all configured, if not print something to logger!!! When project is done all of the above will be empty
+def check_eth_api_settings():
+    if NET_TYPE == '' or ENDPOINT_ADDRESS == '' or MORALIS_API_KEY == '':
+        raise NotImplemented('API keys and network type should be added to the correspondig vars in the settings.py!')
+    
+check_eth_api_settings()
