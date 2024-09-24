@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, onActivated, ref } from "vue";
 import { useRoute } from "vue-router";
 import { storeToRefs } from "pinia";
 import { useWalletDetailsStore } from "@/stores/wallet_details_store";
@@ -43,13 +43,11 @@ const route = useRoute();
 const wallet_detail_store = useWalletDetailsStore();
 const { wallet_details, type, error } = storeToRefs(wallet_detail_store);
 const wallet = ref({});
-onMounted(() => {
-  wallet.value = localStorage.getItem("current_wallet")
-    ? JSON.parse(localStorage.getItem("current_wallet") ?? "")
-    : {};
-  localStorage.removeItem("current_wallet")
-  wallet_detail_store.getWalletDetailsAction(Number(route.params.id));
-});
+wallet.value = localStorage.getItem("current_wallet")
+  ? JSON.parse(localStorage.getItem("current_wallet") ?? "")
+  : {};
+localStorage.removeItem("current_wallet")
+wallet_detail_store.getWalletDetailsAction(Number(route.params.id));
 </script>
 
 <style scoped>
