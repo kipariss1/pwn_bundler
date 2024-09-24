@@ -7,7 +7,7 @@ need:
  ```
 pip install -r requirements.txt
  ```
- - add yours API keys for Etherium blockchain (I got mine from www.alchemy.com) and for Moralis services (developers.moralis.com) into settings.py
+ - add yours API keys for Etherium blockchain (I got mine from www.alchemy.com) and for Moralis services (www.developers.moralis.com) into settings.py
  - makemigrations
  ```
  python manage.py makemigrations
