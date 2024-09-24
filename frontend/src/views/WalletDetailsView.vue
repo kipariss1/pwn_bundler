@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onActivated, ref } from "vue";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
 import { storeToRefs } from "pinia";
 import { useWalletDetailsStore } from "@/stores/wallet_details_store";

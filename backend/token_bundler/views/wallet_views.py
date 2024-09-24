@@ -24,7 +24,7 @@ class WalletCreate(generics.CreateAPIView):
         wallet_address = request.data['address']
         if not endpoint_server.wallet_exists(wallet_address):
             raise NameError('Wallet does not have valid address')
-        super().post(request, *args, **kwargs)
+        return super().post(request, *args, **kwargs)
 
 
 class WalletDetail(generics.RetrieveAPIView):
