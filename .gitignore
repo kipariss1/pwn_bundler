@@ -1,6 +1,7 @@
 __pycache__
 .vscode
 .prettierrc
+.pytest_cache
 *.sqlite3
 node_modules
 venv
